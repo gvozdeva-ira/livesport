@@ -37,9 +37,13 @@ The project is already configured for running tests and generating reports. Key 
 ## Running Tests
 
 To run your Appium tests with WebDriverIO, execute the following command:
-
+- **For Android:**
 ```bash
-npm run wdio
+npm run test:android
+```
+- **For iOS:**
+```bash
+npm run test:iphone
 ```
 
 ## Generating and Viewing Reports
