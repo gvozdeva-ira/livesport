@@ -1,87 +1,64 @@
 # Running Appium Tests with WebDriverIO and TypeScript
 
-This README provides guidance on setting up and running mobile app tests using Appium, WebDriverIO (WDIO), and TypeScript. It includes steps for integrating Allure Reporter for test result visualization and managing environment variables through a `.env` file.
+This project is configured for mobile app testing using Appium, WebDriverIO (WDIO) with TypeScript, and includes Allure for generating test reports. Below are the steps to get started with running your tests.
 
 ## Prerequisites
 
-Ensure you have the following installed and configured:
-- Node.js and npm
-- Appium
-- WebDriverIO CLI
-- Java Development Kit (JDK) for Android testing
-- Android SDK for Android testing or Xcode for iOS testing
-- TypeScript
-- An IDE or text editor of your choice
+Ensure you have Node.js and npm installed on your system. The project is set up to use ES6 modules, as indicated by `"type": "module"` in `package.json`.
 
 ## Installation
 
-1. **Node.js and npm**
-   - Download from [nodejs.org](https://nodejs.org/) and install.
+Clone the project and install the dependencies by running:
 
-2. **Appium**
-   - Install globally with npm: `npm install -g appium`.
-   - Verify installation: `appium --version`.
+```bash
+npm install
+```
 
-3. **WebDriverIO CLI**
-   - Install the WDIO CLI globally: `npm install -g @wdio/cli`.
+This command installs all necessary development dependencies as listed in `package.json`, including but not limited to:
 
-4. **JDK and Android SDK / Xcode**
-   - Install JDK for Android testing and configure `JAVA_HOME`.
-   - Install Android Studio or Xcode for the respective platform SDKs.
-
-5. **TypeScript**
-   - Install TypeScript globally: `npm install -g typescript`.
-   - Initialize a new TypeScript project: `tsc --init` in your project directory.
-
-6. **Allure Report**
-   - Install Allure command-line: `npm install -g allure-commandline`.
+- `@wdio/cli` and related WDIO packages for running tests with WebDriverIO.
+- `appium` for mobile application testing.
+- `@wdio/allure-reporter` for generating test reports using Allure.
+- `dotenv` for loading environment variables from a `.env` file.
+- TypeScript and `ts-node` for writing and executing tests in TypeScript.
 
 ## Configuration
 
-1. **Setup Your Project**
-   - Initialize a new Node.js project: `npm init`.
-   - Install WebDriverIO and Appium service: `npm install @wdio/cli wdio-appium-service`.
-   - Set up WDIO: `wdio config` and follow the interactive setup wizard. Choose Appium in the services section and TypeScript for compilation.
+The project is already configured for running tests and generating reports. Key configurations are as follows:
 
-2. **Configure TypeScript**
-   - Modify `tsconfig.json` as necessary for your project, ensuring compatibility with WDIO and Appium.
+- **WDIO Configuration:** Test configurations are specified in `wdio.conf.ts`. This includes settings for the Appium service, test framework (Mocha), and reporters (Spec and Allure).
 
-3. **Environment Variables**
-   - Create a `.env` file in your project root.
-   - Add device and OS version variables:
-     ```
-     DEVICE_NAME=YourDeviceName
-     OS_VERSION=YourOSVersion
-     ```
-   - Use `dotenv` package to load these in your test setup: `npm install dotenv`.
+- **Allure Reports:** Two scripts are provided for generating Allure reports for iOS and Android separately:
+  - `test:report_ios` and `test:report_android` for generating reports.
+  - `test:report_ios:open` and `test:report_android:open` for generating and opening the reports, respectively.
 
-4. **Test Configuration**
-   - In your WDIO config file, utilize the environment variables for device configuration.
-   - For TypeScript, ensure your test files match the `specs` pattern in `wdio.conf.ts`.
-
-5. **Allure Reporter**
-   - Add Allure Reporter to your WDIO config:
-     ```javascript
-     reporters: [['allure', {outputDir: 'allure-results'}]],
-     ```
+- **Environment Variables:** Use a `.env` file to specify device names and OS versions, which can be accessed in test scripts using the `dotenv` package.
 
 ## Running Tests
 
-1. **Start Appium Server**
-   - Run `appium` in a terminal.
+To run your Appium tests with WebDriverIO, execute the following command:
 
-2. **Run Tests with WDIO**
-   - Execute tests: `npm run wdio.conf.ts`.
+```bash
+npm run wdio
+```
 
-3. **Generate Allure Report**
-   - Generate and open Allure report:
-     ```
-     npm run test:report_android:open
-     ```
+## Generating and Viewing Reports
+
+After running tests, generate and view the Allure reports using the provided scripts:
+
+- **For iOS:**
+  - Generate report: `npm run test:report_ios`
+  - Open report: `npm run test:report_ios:open`
+
+- **For Android:**
+  - Generate report: `npm run test:report_android`
+  - Open report: `npm run test:report_android:open`
 
 ## Troubleshooting
 
-Ensure all dependencies are correctly installed and environment variables are set. If encountering issues, verify the Appium server is running, and device connectivity is established.
+- Ensure the Appium server is running and accessible.
+- Check that your device or emulator is correctly set up and connected.
+- Verify that all necessary environment variables are correctly defined in your `.env` file.
 
 ## Further Resources
 
@@ -91,5 +68,3 @@ Ensure all dependencies are correctly installed and environment variables are se
 - [Allure Framework](https://docs.qameta.io/allure/)
 
 ---
-
-Adapt and expand upon this README based on your project's specific setup, dependencies, and configurations. This template provides a solid foundation for teams looking to leverage Appium, WebDriverIO, TypeScript, and Allure in their mobile app testing processes.

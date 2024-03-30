@@ -22,16 +22,17 @@ export default class AppScreen {
 
   async getToastMessage(): Promise<string> {
     const element = driver.isAndroid
-    ? $('//*[@class="android.widget.Toast"]')
-    : $('//XCUIElementTypeTextField')
+      ? $('//*[@class="android.widget.Toast"]')
+      : $('//XCUIElementTypeTextField') // need check correct path for iOS device
     return element.getText();
   }
 
-  async accessHomeScreen(){
+  // Method for access to the Homescreen app, run in Before hook
+  async accessHomeScreen() {
     await this.allowCookies.click();
     const textFind = "Skip";
     const elementByText = await $(`//*[contains(@text, "${textFind}")]`);
     await elementByText.click();
     await this.skipButton.click();
-}
+  }
 }
