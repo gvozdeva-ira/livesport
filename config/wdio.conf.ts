@@ -11,7 +11,7 @@ export const config: Options.Testrunner = {
     autoCompileOpts: {
         autoCompile: true,
         tsNodeOpts: {
-            project: './tsconfig.json',
+            project: '../tsconfig.json',
             transpileOnly: true
         }
     },
@@ -33,7 +33,7 @@ export const config: Options.Testrunner = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.ts'
+        '../test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,15 +61,7 @@ export const config: Options.Testrunner = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
-        'appium:autoGrantPermissions': true,
-        'appium:platformVersion': process.env.ANDROID_VERSION,
-        //'appium:deviceName': process.env.ANDROID_DEVICE,
-        'appium:automationName': 'UiAutomator2',
-        'appium:app': './test/data/flashscore-com.apk',
-    }],
+    capabilities: [],
 
     //
     // ===================
@@ -138,17 +130,6 @@ export const config: Options.Testrunner = {
     // Whether or not retried spec files should be retried immediately or deferred to the end of the queue
     // specFileRetriesDeferred: false,
     //
-    // Test reporter for stdout.
-    // The only one supported by default is 'dot'
-    // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',
-    ['allure', {
-        outputDir: 'allure-results-android',
-        disableWebdriverStepsReporting: false,
-        disableWebdriverScreenshotsReporting: false,
-    }],
-],
-
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {

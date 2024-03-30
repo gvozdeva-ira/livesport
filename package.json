@@ -16,7 +16,8 @@
     "typescript": "^5.4.3"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts",
+    "test:iphone": "wdio config/wdio.ios.conf.ts",
+    "test:android": "wdio config/wdio.android.conf.ts",
     "test:report_ios": "allure generate allure-results-ios --clean -o allure-report-ios",
     "test:report_android": "allure generate allure-results-android --clean -o allure-report-android",
     "test:report_ios:open": "yarn test:report_ios && allure open allure-report-ios",

@@ -32,13 +32,13 @@ describe('Application simple tests', () => {
 
         // Check team is in Fav
         (await HomeScreen.favIcon).click();
-
-        // Check toast message
         expect(await results[0].getText()).toEqual(TEAM);
 
         // Remove team from fav
         await HomeScreen.addToFavIcons[0].click();
         await HomeScreen.removeFromFavAgree.click();
+
+        // Check toast message
         expect(await HomeScreen.getToastMessage()).toEqual('Removed team from Favorites.');
     })
 })
