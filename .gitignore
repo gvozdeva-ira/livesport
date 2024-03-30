@@ -1,0 +1,4 @@
+node_modules
+allure-*
+.DS_Store
+.env
