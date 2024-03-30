@@ -4,10 +4,6 @@ import HomeScreen from '../screenobjects/home.ts'
 describe('Application simple tests', () => {
 
     before(async function() {
-        //allureReporter.addFeature('Checking creation/deletion listing,validation capacity');
-        //const link= await getPublicUrl(driver.sessionId)
-        //allureReporter.addDescription(link, 'html')
-
         // Accept cookies, click on continue and etc
         await HomeScreen.accessHomeScreen();
     })
