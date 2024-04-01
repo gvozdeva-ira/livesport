@@ -4,7 +4,13 @@ This project is configured for mobile app testing using Appium, WebDriverIO (WDI
 
 ## Prerequisites
 
-Ensure you have Node.js and npm installed on your system. The project is set up to use ES6 modules, as indicated by `"type": "module"` in `package.json`.
+Ensure you have the following installed and configured:
+
+- Node.js and npm installed on your system. 
+- Java Development Kit (JDK) for Android testing
+- Android SDK for Android testing or Xcode for iOS testing
+- TypeScript
+- An IDE or text editor of your choice
 
 ## Installation
 
@@ -32,9 +38,11 @@ The project is already configured for running tests and generating reports. Key 
   - `test:report_ios` and `test:report_android` for generating reports.
   - `test:report_ios:open` and `test:report_android:open` for generating and opening the reports, respectively.
 
-- **Environment Variables:** Use a `.env` file to specify device names and OS versions, which can be accessed in test scripts using the `dotenv` package.
+- **Environment Variables:** Use a `.env` file to specify device names and OS versions, which can be accessed in test scripts using the `dotenv` package. You can rename `.env.example` to `.env` and put your own values
 
 ## Running Tests
+
+Make sure your device or emulator is correctly set up and connected. 
 
 To run your Appium tests with WebDriverIO, execute the following command:
 - **For Android:**
