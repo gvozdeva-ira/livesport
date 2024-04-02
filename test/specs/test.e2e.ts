@@ -12,12 +12,13 @@ describe('Application simple tests', () => {
         await HomeScreen.searchButton.waitForDisplayed();
         await HomeScreen.searchButton.click();
         await HomeScreen.typeInputField(await HomeScreen.searchInput, TEAM);
+
         const results = await HomeScreen.searchResults;
         
         // Check first result is Team name
         expect(await results[0].getText()).toEqual(TEAM);
 
-        // Add to fav
+        // Add to fav first result
         await HomeScreen.addToFavIcons[0].click();
 
         // Check toast message
