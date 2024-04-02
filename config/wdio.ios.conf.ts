@@ -13,7 +13,6 @@ export const config: WebdriverIO.Config = {
     capabilities: [{
         maxInstances: 1,
         browserName: '',
-        'appium:autoGrantPermissions': true,
         'appium:platformVersion': process.env.IOS_VERSION,
         //'appium:deviceName': process.env.IOS_DEVICE,
         platformName: 'iOS',
@@ -21,7 +20,7 @@ export const config: WebdriverIO.Config = {
             process.cwd(),
             'test','data',
             'flashscore-com.zip',
-        ),       
-        'appium:udid': 'ed38d0f8e36c17b4274b06030400247a4bec9684'
+        ),
+        'appium:automationName': 'XCUITest'
     }],
 }
