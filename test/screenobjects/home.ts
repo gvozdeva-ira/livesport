@@ -9,15 +9,15 @@ const APP_ID = 'eu.livesport.FlashScore_com_plus:id/';
 class HomeScreen extends AppScreen {
     
     get searchButton() {
-        return $(`id=${APP_ID}action_bar_item_3`);
+        return $('id=action_bar_item_3');
     }
 
     get backButton() {
-        return $(`id=${APP_ID}back_button`);
+        return $('id=back_button');
     }
 
     get searchInput(){
-        return $(`id=${APP_ID}search_input`)
+        return $('id=search_input')
     }
 
     // get search Results
@@ -30,15 +30,15 @@ class HomeScreen extends AppScreen {
     }
 
     get favIcon(){
-        return $(`id=${APP_ID}action_bar_item_7`);
+        return $('id=action_bar_item_7');
     }
 
     get removeFromFavAgree(){
-        return $(`id=${APP_ID}positive_button`);
+        return $('id=positive_button');
     }
 
     async clickOnFavBottomMenu(){
-        const element = this.getElementByResourceId(`${APP_ID}bottom_nav_view`);
+        const element = $('id=bottom_nav_view');
         const elementFav = driver.isAndroid
         ? element.$('//android.view.View[4]')
         : element.$('//XCUIElementTypeTextField');  // smth else

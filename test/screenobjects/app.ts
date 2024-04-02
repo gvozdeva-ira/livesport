@@ -1,5 +1,3 @@
-const APP_ID = 'eu.livesport.FlashScore_com_plus:id/';
-
 export default class AppScreen {
   getElementByResourceId(resourceId: string) {
     return $(`android=new UiSelector().resourceId("${resourceId}")`);
@@ -7,19 +5,13 @@ export default class AppScreen {
   getElementsByResourceId(resourceId: string) {
     return $$(`android=new UiSelector().resourceId("${resourceId}")`);
   }
-  get allowNotificationButton() {
-    return this.getElementByResourceId('com.android.permissioncontroller:id/permission_allow_button');
-  }
+
   get allowCookies() {
-    return this.getElementByResourceId(`${APP_ID}btn_accept_cookies`);
+    return $('id=btn_accept_cookies');
   }
 
   get skipButton() {
-    return this.getElementByResourceId(`${APP_ID}btn_skip`);
-  }
-
-  async allowNotifications() {
-    await this.allowNotificationButton.click();
+    return $('id=btn_skip');
   }
 
   async getToastMessage(): Promise<string> {
